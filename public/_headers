@@ -1,0 +1,16 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/img/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/boda.ics
+  Content-Type: text/calendar; charset=utf-8
+  Content-Disposition: attachment; filename="boda-carla-andres.ics"
+
+/audio/*
+  Cache-Control: public, max-age=2592000

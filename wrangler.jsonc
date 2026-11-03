@@ -1,0 +1,6 @@
+// Publicación en Cloudflare Workers: npx wrangler deploy
+{
+  "name": "boda-carla-andres",
+  "compatibility_date": "2026-11-01",
+  "assets": { "directory": "./public" }
+}

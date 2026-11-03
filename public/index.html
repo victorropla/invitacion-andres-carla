@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#f7f4f0">
+<title>Carla &amp; Andrés · 26.06.27</title>
+<meta name="description" content="¡Nos casamos! Carla &amp; Andrés, 26 de junio de 2027. Monasterio de Santa María del Puig.">
+<!-- Vista previa al compartir por WhatsApp: cambia el dominio por el definitivo -->
+<meta property="og:title" content="Carla &amp; Andrés · ¡Nos casamos!">
+<meta property="og:description" content="26 de junio de 2027 · Monasterio de Santa María del Puig">
+<meta property="og:image" content="https://boda-carla-andres.invitacion-boda.workers.dev/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://boda-carla-andres.invitacion-boda.workers.dev/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 28S3 20 3 11a6.5 6.5 0 0 1 13-1 6.5 6.5 0 0 1 13 1c0 9-13 17-13 17z' fill='%23641C30'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Montserrat:wght@500;700&family=Ms+Madi&family=Oswald:wght@300;600&display=swap">
+<link rel="preload" as="image" href="img/corazones.webp">
+<style>
+:root{
+  --granate:#641C30;
+  --granate-2:#7d2a40;
+  --tinta:#2b1b1f;
+  --papel:#f7f4f0;
+  --rayas:#b8939b;
+  --linea:#dccbce;
+  --script:'Ms Madi',cursive;
+  --mano:'Caveat',cursive;
+  --cond:'Oswald',sans-serif;
+  --sans:'Montserrat',system-ui,sans-serif;
+  --app-h:100vh;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:#e8e0da;color:var(--tinta);-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body{font-family:var(--sans)}
+img{display:block;max-width:100%;height:auto;-webkit-user-drag:none;user-select:none}
+a{color:inherit}
+
+/* Marco de la app: a pantalla completa en móvil, columna centrada en escritorio */
+#app{position:fixed;top:0;left:50%;transform:translateX(-50%);width:min(100%,480px);height:var(--app-h);height:100dvh;background:var(--papel) url(img/papel.webp);box-shadow:0 0 60px rgba(60,20,30,.15);overflow:hidden}
+#deck{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+#deck::-webkit-scrollbar{display:none}
+
+.slide{position:relative;height:100%;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden;container-type:size;
+  padding:calc(env(safe-area-inset-top) + 5cqh) 7cqw calc(env(safe-area-inset-bottom) + 6cqh)}
+
+/* Animaciones de entrada: se activan al llegar a cada diapositiva (.in) */
+.a{opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.in .a{opacity:1;transform:none}
+.write{display:inline-block;clip-path:inset(-20% 100% -20% -10%);transition:clip-path 1.5s cubic-bezier(.6,.1,.3,1) var(--d,0s)}
+.in .write{clip-path:inset(-20% -10% -20% -10%)}
+
+.btn{display:inline-flex;align-items:center;gap:.5em;background:var(--granate);color:#fff;text-decoration:none;font-family:var(--mano);font-size:clamp(17px,5.4cqw,24px);line-height:1;padding:.42em 1em .5em;border-radius:6px;box-shadow:0 3px 10px rgba(100,28,48,.25);transition:transform .15s}
+.btn:active{transform:scale(.96)}
+.btn u{text-underline-offset:3px}
+.btn-sec{font-family:var(--sans);font-size:clamp(10px,3cqw,13px);letter-spacing:.18em;text-transform:uppercase;color:var(--granate);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.titulo{font-family:var(--script);font-weight:400;color:var(--tinta);font-size:min(17cqw,10cqh);line-height:1}
+
+/* 1 · Portada */
+.s-portada .p-top{font-family:var(--cond);font-weight:300;letter-spacing:.06em;font-size:min(6cqw,3.6cqh);line-height:1.25;position:relative;z-index:2}
+.s-portada .p-top .fecha{padding-left:1.2em}
+.nombres{position:absolute;z-index:2;left:22cqw;top:24cqh;font-family:var(--script);font-weight:400;color:var(--granate);font-size:min(23cqw,13cqh);line-height:.95}
+.nombres span{display:block;padding:0 .1em}
+.nombres .n2{margin-left:-.5em;--d:.9s}
+.nombres small{font-size:.55em}
+.monograma{position:absolute;z-index:2;right:12cqw;top:min(62cqh,calc(24cqh + 60cqw));width:min(38cqw,22cqh);--d:1.8s}
+/* Tiras de fotos: caja larga centrada en un punto y girada, con los extremos siempre fuera de pantalla */
+.tira{position:absolute;z-index:1;width:38cqw;height:140cqh;margin:-70cqh 0 0 -19cqw;padding:0 2cqw;overflow:hidden;pointer-events:none}
+.tira-track{display:flex;flex-direction:column;gap:3cqw;animation:tira 60s linear infinite}
+.tira img{width:100%;aspect-ratio:4/5;object-fit:cover;border:1.6cqw solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+.tira-a{left:86cqw;top:5cqh;transform:rotate(-40deg)}
+.tira-a .tira-track{animation-direction:reverse;animation-duration:70s}
+.tira-b{left:12cqw;top:88cqh;transform:rotate(-32deg)}
+@keyframes tira{to{transform:translateY(calc(-50% - 1.5cqw))}}
+.tira{opacity:0;transition:opacity 1.4s ease .2s}
+.in .tira{opacity:1}
+.desliza{position:absolute;z-index:3;right:9cqw;bottom:calc(env(safe-area-inset-bottom) + 3cqh);text-align:center;font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--granate);--d:2.6s}
+.desliza svg{display:block;margin:4px auto 0;animation:bota 1.8s ease-in-out infinite}
+@keyframes bota{50%{transform:translateY(5px)}}
+
+/* 2 · Momentos (rayas + marcos ondulados) */
+.s-momentos{padding:0}
+.rayas{position:absolute;inset:0;width:100%;height:100%}
+.rayas path{fill:var(--rayas);transform-box:fill-box;transform-origin:top;transform:scaleY(0);transition:transform 1.2s cubic-bezier(.5,0,.2,1)}
+.in .rayas path{transform:none}
+.marco{position:absolute;width:56cqw;aspect-ratio:4/5;opacity:0;transition:opacity 1s ease var(--d),transform 1.2s cubic-bezier(.2,.8,.2,1) var(--d)}
+.marco img{width:100%;height:100%;object-fit:cover;-webkit-clip-path:url(#ola);clip-path:url(#ola)}
+.marco svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transform:translate(-3%,2%) rotate(-3deg)}
+.marco path{fill:none;stroke:var(--granate);stroke-width:1.4;vector-effect:non-scaling-stroke}
+.m1{left:4cqw;top:max(calc(env(safe-area-inset-top) + 6cqh),calc(50cqh - 70cqw));transform:rotate(-24deg) scale(.85);--d:.7s}
+.m2{right:3cqw;bottom:max(calc(env(safe-area-inset-bottom) + 6cqh),calc(50cqh - 72cqw));transform:rotate(22deg) scale(.85);--d:1.2s}
+.in .m1{opacity:1;transform:rotate(-14deg)}
+.in .m2{opacity:1;transform:rotate(12deg)}
+.m2 svg{transform:translate(3%,-2%) rotate(4deg)}
+
+/* 3 · Cuenta atrás */
+.s-cuenta{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:min(4cqh,7cqw)}
+.s-cuenta .titulo{font-size:min(20cqw,11cqh)}
+.dos-puntos{display:block;font-family:var(--cond);font-size:min(7cqw,4cqh);line-height:.5;margin-top:.3em}
+.cd{display:flex;align-items:flex-start;justify-content:center;color:var(--granate)}
+.cd div{display:flex;flex-direction:column;align-items:center;min-width:14cqw}
+.cd b{font-family:var(--cond);font-weight:600;font-size:min(12cqw,7cqh);line-height:1;font-variant-numeric:tabular-nums;display:block}
+.cd b.tick{animation:tick .45s ease}
+@keyframes tick{0%{opacity:.35;transform:translateY(-6px)}}
+.cd small{font-family:var(--sans);font-size:clamp(8px,2.3cqw,11px);letter-spacing:.12em;text-transform:lowercase;color:#8d6a73;margin-top:.4em}
+.cd i{width:1px;align-self:stretch;background:var(--linea);margin:0 2.4cqw}
+.coche{width:min(64cqw,36cqh);--d:.9s}
+.in .coche{animation:mece 4s ease-in-out 2s infinite}
+@keyframes mece{25%{transform:rotate(-1.5deg) translateY(-2px)}75%{transform:rotate(1.5deg)}}
+.hoy{font-family:var(--script);font-size:min(14cqw,8cqh);color:var(--granate)}
+
+/* 4 · Lugares */
+.s-lugares{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr auto;align-items:center;column-gap:4cqw}
+.lugar-dibujo{display:flex;flex-direction:column;align-items:center;gap:1cqh}
+.lugar-dibujo img{height:min(24cqh,40cqw);width:auto}
+.lugar-dibujo p{font-family:var(--mano);font-size:min(6.4cqw,3.6cqh);color:var(--tinta)}
+.lugar-info{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2.4cqh}
+.lugar-info h3{font-family:var(--script);font-weight:400;font-size:min(9.5cqw,5.4cqh);line-height:1.05;color:var(--tinta)}
+.camino{grid-column:1/-1;width:60%;height:100%;min-height:8cqh;justify-self:center;overflow:visible}
+.camino path{fill:none;stroke:var(--linea);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s ease .9s}
+.in .camino path{stroke-dashoffset:0}
+
+/* 5 · Programa */
+.s-programa{display:flex;flex-direction:column;align-items:center}
+.s-programa .titulo{margin-bottom:4cqh}
+.programa{list-style:none;position:relative;width:100%;flex:1;display:flex;flex-direction:column;justify-content:space-around;max-height:72cqh}
+.programa::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:#b9a2a8;transform-origin:top;transform:scaleY(0);transition:transform 1.6s ease .3s}
+.in .programa::before{transform:none}
+.programa li{position:relative;width:50%;display:flex;align-items:center;gap:2.6cqw;font-family:var(--sans)}
+.programa li::after{content:"";position:absolute;top:50%;width:6cqw;height:1px;background:#b9a2a8}
+.programa .r{margin-left:50%;padding-left:9cqw}
+.programa .r::after{left:0}
+.programa .l{flex-direction:row-reverse;padding-right:9cqw;text-align:right}
+.programa .l::after{right:0}
+.programa svg{width:min(11cqw,6.4cqh);height:min(11cqw,6.4cqh);flex:none;fill:none;stroke:var(--granate);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.programa b{display:block;font-weight:700;font-size:clamp(10px,3.2cqw,14px);letter-spacing:.12em}
+.programa span{display:block;font-weight:500;font-size:clamp(9px,2.8cqw,12px);letter-spacing:.2em;text-transform:uppercase;color:#6d5a5f}
+.programa .l.a{transform:translateX(-14px)}
+.programa .r.a{transform:translateX(14px)}
+.in .programa li.a{transform:none}
+
+/* 6 y 7 · Confirmación y música */
+.s-cta{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:min(4.5cqh,8cqw)}
+.s-cta p{font-family:var(--sans);font-size:clamp(13px,4cqw,16px);line-height:1.6;color:#4b3a3f;max-width:30ch}
+.s-cta .ilustra{width:min(46cqw,26cqh);height:auto;fill:none;stroke:var(--granate);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+.sobre-carta{transition:transform 1.2s cubic-bezier(.2,.8,.2,1) 1s;transform:translateY(16px)}
+.in .sobre-carta{transform:translateY(-14px)}
+.vinilo{transform-box:fill-box;transform-origin:center}
+.in .vinilo{animation:gira 6s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+
+/* 8 · Polaroids */
+.s-historia{display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center}
+.s-historia .titulo{font-size:min(15cqw,8.5cqh)}
+.pila{position:relative;width:min(70cqw,40cqh);aspect-ratio:.8;touch-action:pan-y;cursor:grab}
+.pola{position:absolute;inset:0;background:#fff;padding:3.4% 6% 0;box-shadow:0 6px 22px rgba(43,27,31,.18),0 1px 3px rgba(43,27,31,.12);transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .4s;will-change:transform;display:flex;flex-direction:column}
+.pola figcaption{font-family:var(--mano);color:var(--granate);font-size:min(7.4cqw,4.2cqh);line-height:1.3;padding:.15em 0 .3em}
+.pola img{width:100%;aspect-ratio:1;object-fit:cover;background:#eee;pointer-events:none}
+.pola.drag{transition:none}
+.pila-ayuda{font-family:var(--sans);font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#8d6a73}
+.despedida{font-family:var(--script);color:var(--granate);font-size:min(12cqw,7cqh);line-height:1}
+.firma{font-family:var(--cond);font-weight:300;letter-spacing:.08em;font-size:min(4.4cqw,2.6cqh);margin-top:.4em}
+
+/* Navegación lateral */
+.puntos{position:absolute;right:6px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:2px;z-index:10}
+.puntos button{width:20px;height:18px;border:0;background:none;display:grid;place-items:center;cursor:pointer}
+.puntos button::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--granate);opacity:.25;transition:opacity .3s,transform .3s}
+.puntos button[aria-current="true"]::before{opacity:.9;transform:scale(1.4)}
+
+/* Pantalla de entrada (el toque para abrir permite arrancar la música) */
+.sobre{position:absolute;inset:0;z-index:30;background:var(--papel) url(img/papel.webp);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3.5vh;text-align:center;padding:calc(env(safe-area-inset-top) + 24px) 24px calc(env(safe-area-inset-bottom) + 24px);transition:opacity .8s ease,visibility .8s}
+.sobre.fuera{opacity:0;visibility:hidden}
+.sobre img{width:min(42vw,200px)}
+.sobre h2{font-family:var(--script);font-weight:400;color:var(--granate);font-size:clamp(44px,14vw,68px);line-height:1}
+.sobre p{font-family:var(--cond);font-weight:300;letter-spacing:.2em}
+.sobre small{font-family:var(--sans);font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#8d6a73}
+.sobre .btn{animation:late 2.4s ease-in-out infinite}
+@keyframes late{50%{transform:scale(1.05)}}
+
+/* Botón de música */
+.musica{position:absolute;z-index:20;top:calc(env(safe-area-inset-top) + 10px);right:10px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.88);color:var(--granate);box-shadow:0 2px 10px rgba(43,27,31,.18);display:grid;place-items:center;cursor:pointer}
+.musica[hidden]{display:none}
+.musica svg{width:20px;height:20px}
+.musica .ecu rect{fill:currentColor;transform-box:fill-box;transform-origin:bottom}
+.musica[aria-pressed="true"] .ecu rect{animation:ecu .9s ease-in-out infinite alternate}
+.musica .ecu rect:nth-child(2){animation-delay:-.3s}
+.musica .ecu rect:nth-child(3){animation-delay:-.6s}
+@keyframes ecu{from{transform:scaleY(.3)}}
+.musica .tachado{display:none}
+.musica[aria-pressed="false"] .tachado{display:block}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .a,.tira,.marco{opacity:1!important;transform:none!important}
+  .write{clip-path:none!important}
+  .rayas path,.programa::before{transform:none!important}
+  .camino path{stroke-dashoffset:0!important}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <clipPath id="ola" clipPathUnits="objectBoundingBox"><path id="ola-path"/></clipPath>
+</svg>
+
+<div id="app">
+<main id="deck">
+
+  <!-- 1 · Portada -->
+  <section class="slide s-portada" aria-label="Portada">
+    <div class="tira tira-a" aria-hidden="true"><div class="tira-track">
+      <img src="img/portada-1.webp" alt="" width="360" height="450"><img src="img/portada-2.webp" alt="" width="360" height="450"><img src="img/portada-3.webp" alt="" width="360" height="450"><img src="img/portada-4.webp" alt="" width="360" height="450">
+    </div></div>
+    <div class="tira tira-b" aria-hidden="true"><div class="tira-track">
+      <img src="img/portada-3.webp" alt="" width="360" height="450"><img src="img/portada-4.webp" alt="" width="360" height="450"><img src="img/portada-1.webp" alt="" width="360" height="450"><img src="img/portada-2.webp" alt="" width="360" height="450">
+    </div></div>
+    <header class="p-top">
+      <p class="a" style="--d:.2s">¡NOS CASAMOS!</p>
+      <p class="fecha a" style="--d:.5s">26.06.27</p>
+    </header>
+    <h1 class="nombres"><span class="write" style="--d:.6s">Carla</span><span class="n2 write" style="--d:1.3s"><small>&amp;</small> Andrés</span></h1>
+    <img class="monograma a" src="img/corazones.webp" alt="Corazones con las iniciales A y C" width="360" height="245">
+    <div class="desliza a">Desliza<svg width="18" height="10" viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l8 7 8-7"/></svg></div>
+  </section>
+
+  <!-- 2 · Momentos -->
+  <section class="slide s-momentos" aria-label="Nosotros">
+    <svg class="rayas" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+    <figure class="marco m1">
+      <img src="img/momento-1.webp" alt="Carla y Andrés al atardecer" width="640" height="800" loading="lazy">
+      <svg viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true"><path class="ola-borde"/></svg>
+    </figure>
+    <figure class="marco m2">
+      <img src="img/momento-2.webp" alt="Carla y Andrés bailando" width="640" height="800" loading="lazy">
+      <svg viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true"><path class="ola-borde"/></svg>
+    </figure>
+  </section>
+
+  <!-- 3 · Cuenta atrás -->
+  <section class="slide s-cuenta" aria-label="Cuenta atrás">
+    <h2 class="titulo a">Faltan<span class="dos-puntos">:</span></h2>
+    <div class="cd a" style="--d:.4s" id="cuenta" role="timer" aria-live="off">
+      <div><b data-u="d">000</b><small>días</small></div><i></i>
+      <div><b data-u="h">00</b><small>horas</small></div><i></i>
+      <div><b data-u="m">00</b><small>minutos</small></div><i></i>
+      <div><b data-u="s">00</b><small>segundos</small></div>
+    </div>
+    <img class="coche a" src="img/coche.webp" alt="Coche de recién casados con globos de corazón" width="480" height="554" loading="lazy">
+    <a class="btn-sec a" style="--d:1.3s" href="boda.ics" download>Guardar en el calendario</a>
+  </section>
+
+  <!-- 4 · Ceremonia y recepción -->
+  <section class="slide s-lugares" aria-label="Ceremonia y recepción">
+    <div class="lugar-dibujo a" style="--d:.2s">
+      <img src="img/iglesia.webp" alt="Dibujo del monasterio" width="293" height="345" loading="lazy">
+      <p>Ceremonia 18h</p>
+    </div>
+    <div class="lugar-info a" style="--d:.5s">
+      <h3>Monasterio de Santa María del Puig</h3>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Real+Monasterio+de+Santa+Mar%C3%ADa+del+Puig" target="_blank" rel="noopener"><u>Cómo llegar</u></a>
+    </div>
+    <svg class="camino" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M8 2 C 8 55, 92 40, 92 98" vector-effect="non-scaling-stroke"/></svg>
+    <div class="lugar-info a" style="--d:1.6s">
+      <h3>Huerto de Santa María</h3>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Huerto+de+Santa+Mar%C3%ADa+El+Puig" target="_blank" rel="noopener"><u>Cómo llegar</u></a>
+    </div>
+    <div class="lugar-dibujo a" style="--d:1.9s">
+      <img src="img/mesa.webp" alt="Dibujo de la mesa del banquete" width="420" height="410" loading="lazy">
+      <p>Recepción 20:15h</p>
+    </div>
+  </section>
+
+  <!-- 5 · El gran día -->
+  <section class="slide s-programa" aria-label="El gran día">
+    <h2 class="titulo a">El gran día</h2>
+    <ul class="programa">
+      <li class="r a" style="--d:.6s">
+        <svg viewBox="0 0 48 48"><circle cx="18" cy="30" r="10"/><circle cx="30" cy="30" r="10"/><path d="M14 11h8l2 3-6 6-6-6z"/><path d="M12 14h12M16 11l2 9 2-9"/></svg>
+        <div><b>18:00 H</b><span>Ceremonia</span></div>
+      </li>
+      <li class="l a" style="--d:.9s">
+        <svg viewBox="0 0 48 48"><path d="M24 24l0-14M24 24l10-10M24 24l14 0M24 24l10 10M24 24l0 14M24 24l-10 10M24 24l-14 0M24 24l-10-10"/><path d="M24 6v-2M37 11l1.5-1.5M42 24h2M37 37l1.5 1.5M24 42v2M11 37l-1.5 1.5M6 24h-2M11 11l-1.5-1.5" stroke-dasharray="1 0"/><circle cx="31" cy="8" r=".6"/><circle cx="41" cy="16" r=".6"/><circle cx="40" cy="33" r=".6"/><circle cx="16" cy="41" r=".6"/><circle cx="7" cy="31" r=".6"/><circle cx="8" cy="15" r=".6"/></svg>
+        <div><b>19:30 H</b><span>Pirotecnia</span></div>
+      </li>
+      <li class="r a" style="--d:1.2s">
+        <svg viewBox="0 0 48 48"><path d="M8 12l10-3 2 9a6 6 0 0 1-11 3z"/><path d="M15 24l3 12M13 37l9-2"/><path d="M40 12l-10-3-2 9a6 6 0 0 0 11 3z"/><path d="M33 24l-3 12M35 37l-9-2"/><path d="M9.5 16.5l9.5-2.8M38.5 16.5l-9.5-2.8"/><path d="M24 4v4M19 6l2 3M29 6l-2 3"/></svg>
+        <div><b>20:15 H</b><span>Cóctel</span></div>
+      </li>
+      <li class="l a" style="--d:1.5s">
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="25" r="12"/><circle cx="24" cy="25" r="7.5"/><path d="M6 10v8a2 2 0 0 0 4 0v-8M8 10v30"/><path d="M40 10c-3 2-3 10 0 12v18"/></svg>
+        <div><b>21:30 H</b><span>Cena</span></div>
+      </li>
+      <li class="r a" style="--d:1.8s">
+        <svg viewBox="0 0 48 48"><path d="M18 36V10l18-4v24"/><path d="M18 16l18-4"/><ellipse cx="13" cy="36" rx="5" ry="4"/><ellipse cx="31" cy="30" rx="5" ry="4"/></svg>
+        <div><b>00:00 H</b><span>Fiesta</span></div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 6 · Confirmación -->
+  <section class="slide s-cta" aria-label="Confirmar asistencia">
+    <svg class="ilustra a" viewBox="0 0 120 100" aria-hidden="true">
+      <g class="sobre-carta"><rect x="22" y="18" width="76" height="56" rx="2" fill="#fff"/><path d="M34 34h52M34 44h40M34 54h46"/></g>
+      <path d="M14 42l46 30 46-30v54H14z" fill="var(--papel)"/>
+      <path d="M14 96l36-28M106 96L70 68"/>
+      <path d="M60 81c-6-5-10-8-10-12a4.5 4.5 0 0 1 10-2 4.5 4.5 0 0 1 10 2c0 4-4 7-10 12z" fill="var(--granate)" stroke="none"/>
+    </svg>
+    <h2 class="titulo a" style="--d:.3s">¿Nos acompañas?</h2>
+    <p class="a" style="--d:.5s">Nos hace muchísima ilusión compartir este día contigo. Ayúdanos a organizarlo todo confirmando tu asistencia.</p>
+    <a class="btn a" style="--d:.7s" href="https://docs.google.com/forms/d/e/1FAIpQLSera83M5gqv-g26BvWiOwp2PrIVX6niEH8mcG2TuSMH4cq7TA/viewform" target="_blank" rel="noopener"><u>Confirmar asistencia</u></a>
+  </section>
+
+  <!-- 7 · Música -->
+  <section class="slide s-cta" aria-label="Lista de canciones">
+    <svg class="ilustra a" viewBox="0 0 120 120" aria-hidden="true">
+      <g class="vinilo"><circle cx="60" cy="60" r="44" fill="var(--tinta)" stroke="none"/><circle cx="60" cy="60" r="36" stroke="#5a4248" stroke-width=".8"/><circle cx="60" cy="60" r="29" stroke="#5a4248" stroke-width=".8"/><circle cx="60" cy="60" r="14" fill="var(--granate)" stroke="none"/><circle cx="60" cy="60" r="2.2" fill="var(--papel)" stroke="none"/><path d="M38 34a30 30 0 0 1 14-8" stroke="#8a737a" stroke-width="1.6"/></g>
+      <path d="M100 10v40l-14 26" stroke-width="2.4"/><circle cx="100" cy="10" r="4"/>
+    </svg>
+    <h2 class="titulo a" style="--d:.3s">¿Qué canción no puede faltar?</h2>
+    <p class="a" style="--d:.5s">Queremos que la fiesta suene a todos. Añade tus canciones favoritas a nuestra lista y prepárate para bailar.</p>
+    <a class="btn a" style="--d:.7s" href="https://open.spotify.com/playlist/6ZSxadq4HdDW0pPDgZIBN4" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5a10.5 10.5 0 1 0 0 21 10.5 10.5 0 0 0 0-21zm4.8 15.1a.65.65 0 0 1-.9.2c-2.5-1.5-5.6-1.8-9.3-1a.65.65 0 1 1-.3-1.3c4-.9 7.5-.5 10.3 1.2.3.2.4.6.2.9zm1.3-2.9a.8.8 0 0 1-1.1.3c-2.8-1.7-7.2-2.2-10.5-1.2a.8.8 0 1 1-.5-1.6c3.8-1.1 8.6-.6 11.8 1.4.4.2.5.7.3 1.1zm.1-3c-3.4-2-9-2.2-12.2-1.2a1 1 0 1 1-.6-1.9c3.7-1.1 9.9-.9 13.8 1.4a1 1 0 0 1-1 1.7z"/></svg>
+      <u>Añadir canciones</u>
+    </a>
+  </section>
+
+  <!-- 8 · Nuestra historia -->
+  <section class="slide s-historia" aria-label="Nuestra historia">
+    <h2 class="titulo a">Nuestra historia</h2>
+    <div class="pila a" style="--d:.3s" id="pila">
+      <figure class="pola"><figcaption>Así nos conocimos</figcaption><img src="img/polaroid-1.webp" alt="Carla y Andrés el día que se conocieron" width="720" height="720"></figure>
+      <figure class="pola"><figcaption>Nuestros comienzos</figcaption><img src="img/polaroid-2.webp" alt="Carla y Andrés en sus comienzos" width="720" height="720" loading="lazy"></figure>
+      <figure class="pola"><figcaption>Nuestras aventuras</figcaption><img src="img/polaroid-3.webp" alt="Carla y Andrés de viaje" width="720" height="720" loading="lazy"></figure>
+      <figure class="pola"><figcaption>Nuestras pasiones</figcaption><img src="img/polaroid-4.webp" alt="Carla y Andrés vestidos de falleros" width="720" height="720" loading="lazy"></figure>
+      <figure class="pola"><figcaption>Primer gran paso</figcaption><img src="img/polaroid-5.webp" alt="Carla y Andrés con las llaves de su casa" width="720" height="720" loading="lazy"></figure>
+      <figure class="pola"><figcaption>¡El gran día!</figcaption><img src="img/polaroid-6.webp" alt="Carla y Andrés, 26 de junio de 2027" width="720" height="720" loading="lazy"></figure>
+    </div>
+    <p class="pila-ayuda a" style="--d:.6s"><span id="pila-n">1 / 6</span> · Desliza las fotos</p>
+    <div class="a" style="--d:.8s">
+      <p class="despedida">¡Te esperamos!</p>
+      <p class="firma">CARLA &amp; ANDRÉS · 26.06.27</p>
+    </div>
+  </section>
+
+</main>
+<nav class="puntos" aria-label="Diapositivas"></nav>
+
+<button class="musica" id="btn-musica" type="button" aria-label="Música" aria-pressed="false" hidden>
+  <svg class="ecu" viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="5" width="3" height="11" rx="1"/><rect x="8.5" y="3" width="3" height="13" rx="1"/><rect x="14" y="7" width="3" height="9" rx="1"/><path class="tachado" d="M2 2l16 16" stroke="currentColor" stroke-width="1.6"/></svg>
+</button>
+<!-- Canción de fondo: public/audio/cancion.m4a (npm run audio). data-inicio = segundo en el que empieza -->
+<audio id="musica" src="audio/cancion.m4a" preload="none" loop data-inicio="0"></audio>
+
+<div class="sobre" id="sobre">
+  <img src="img/corazones.webp" alt="" width="360" height="245">
+  <h2>Carla &amp; Andrés</h2>
+  <p>26 · 06 · 2027</p>
+  <button class="btn" type="button" id="abrir"><u>Abrir invitación</u></button>
+  <small>Con música · sube el volumen</small>
+</div>
+</div>
+
+<script>
+(() => {
+  const deck = document.getElementById('deck');
+  const slides = [...deck.querySelectorAll('.slide')];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Altura real de la pantalla en navegadores sin soporte de dvh
+  if (!CSS.supports('height', '100dvh')) {
+    const fix = () => document.documentElement.style.setProperty('--app-h', innerHeight + 'px');
+    fix(); addEventListener('resize', fix);
+  }
+
+  // Tiras de la portada: se repiten las fotos para que el bucle no tenga cortes
+  document.querySelectorAll('.tira-track').forEach(t => (t.innerHTML = t.innerHTML.repeat(4)));
+
+  // Forma ondulada de los marcos (coordenadas 0..1)
+  const ola = (fase, amp = 0.022, ondas = 6, m = 0.03) => {
+    const pts = [], N = 48;
+    const borde = (x0, y0, x1, y1, nx, ny, k) => {
+      for (let i = 0; i < N; i++) {
+        const t = i / N, w = Math.sin((t * ondas + k) * Math.PI * 2 + fase) * amp;
+        pts.push([(x0 + (x1 - x0) * t + nx * w).toFixed(4), (y0 + (y1 - y0) * t + ny * w).toFixed(4)]);
+      }
+    };
+    borde(m, m, 1 - m, m, 0, 1, 0);
+    borde(1 - m, m, 1 - m, 1 - m, 1, 0, .25);
+    borde(1 - m, 1 - m, m, 1 - m, 0, 1, .5);
+    borde(m, 1 - m, m, m, 1, 0, .75);
+    return 'M' + pts.map(p => p.join(',')).join('L') + 'Z';
+  };
+  document.getElementById('ola-path').setAttribute('d', ola(0));
+  document.querySelectorAll('.ola-borde').forEach((p, i) => p.setAttribute('d', ola(1.3 + i, 0.028, 5, 0.01)));
+
+  // Rayas pintadas a mano
+  const rayas = document.querySelector('.rayas');
+  let svg = '', x = -1, i = 0;
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  while (x < 100) {
+    const w = rnd(2.4, 3.6), izq = [], der = [];
+    for (let y = 0; y <= 100; y += 5) { izq.push(`${(x + rnd(-.3, .3)).toFixed(2)},${y}`); der.unshift(`${(x + w + rnd(-.3, .3)).toFixed(2)},${y}`); }
+    svg += `<path style="transition-delay:${(.05 * i + rnd(0, .15)).toFixed(2)}s;opacity:${rnd(.6, .9).toFixed(2)}" d="M${izq.join('L')}L${der.join('L')}Z"/>`;
+    x += w + rnd(3, 4.2); i++;
+  }
+  rayas.innerHTML = svg;
+
+  // Puntos de navegación + activar animaciones por diapositiva
+  const nav = document.querySelector('.puntos');
+  const puntos = slides.map((s, n) => {
+    const b = document.createElement('button');
+    b.setAttribute('aria-label', s.getAttribute('aria-label'));
+    b.onclick = () => s.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+    nav.appendChild(b);
+    return b;
+  });
+  const io = new IntersectionObserver(entries => {
+    for (const e of entries) {
+      if (e.intersectionRatio >= .55) {
+        e.target.classList.add('in');
+        puntos.forEach((p, n) => p.setAttribute('aria-current', slides[n] === e.target));
+      } else if (!e.isIntersecting) {
+        e.target.classList.remove('in');
+      }
+    }
+  }, { root: deck, threshold: [0, .55] });
+  const empieza = () => slides.forEach(s => io.observe(s));
+
+  // Música de fondo: los navegadores solo dejan sonar audio tras un toque, por eso la pantalla de entrada
+  const audio = document.getElementById('musica');
+  const btnMusica = document.getElementById('btn-musica');
+  let quiereMusica = false;
+  const marca = () => btnMusica.setAttribute('aria-pressed', !audio.paused);
+  const suena = () => {
+    if (audio.readyState === 0) audio.load();
+    if (!audio.currentTime) audio.currentTime = +audio.dataset.inicio || 0;
+    audio.play().then(marca, marca);
+  };
+  audio.addEventListener('error', () => { btnMusica.hidden = true; });
+  audio.addEventListener('play', marca);
+  audio.addEventListener('pause', marca);
+  btnMusica.onclick = () => { quiereMusica = audio.paused; quiereMusica ? suena() : audio.pause(); };
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) audio.pause(); else if (quiereMusica) suena();
+  });
+
+  const sobre = document.getElementById('sobre');
+  // Enlace directo a una diapositiva: /#6 abre la confirmación, /#7 la música… (sin pantalla de entrada)
+  const n = parseInt(location.hash.slice(1), 10);
+  if (slides[n - 1]) {
+    sobre.remove();
+    btnMusica.hidden = false;
+    deck.scrollTop = slides[n - 1].offsetTop;
+    empieza();
+  } else {
+    document.getElementById('abrir').onclick = () => {
+      quiereMusica = true;
+      btnMusica.hidden = false;
+      suena();
+      sobre.classList.add('fuera');
+      setTimeout(() => sobre.remove(), 900);
+      empieza();
+    };
+  }
+
+  // Cuenta atrás: 26/06/2027 18:00 (hora peninsular, CEST = UTC+2)
+  const BODA = Date.UTC(2027, 5, 26, 16, 0, 0);
+  const cd = document.getElementById('cuenta');
+  const celdas = Object.fromEntries([...cd.querySelectorAll('b')].map(b => [b.dataset.u, b]));
+  const pon = (u, v) => {
+    const b = celdas[u];
+    if (b.textContent !== v) { b.textContent = v; if (!reduce) { b.classList.remove('tick'); void b.offsetWidth; b.classList.add('tick'); } }
+  };
+  const tic = () => {
+    let s = Math.max(0, Math.floor((BODA - Date.now()) / 1000));
+    if (s === 0) { cd.outerHTML = '<p class="hoy">¡Hoy es el gran día!</p>'; return; }
+    pon('d', String(Math.floor(s / 86400)).padStart(3, '0')); s %= 86400;
+    pon('h', String(Math.floor(s / 3600)).padStart(2, '0')); s %= 3600;
+    pon('m', String(Math.floor(s / 60)).padStart(2, '0'));
+    pon('s', String(s % 60).padStart(2, '0'));
+    setTimeout(tic, 1000 - (Date.now() % 1000) + 5);
+  };
+  tic();
+
+  // Pila de polaroids: arrastrar o tocar para pasar a la siguiente
+  const pila = document.getElementById('pila');
+  const cartas = [...pila.querySelectorAll('.pola')];
+  const giro = cartas.map((_, n) => [-4, 5, -2, 3, -5, 2][n % 6]);
+  const contador = document.getElementById('pila-n');
+  let orden = cartas.map((_, n) => n), ultimoToque = 0, animando = false;
+  // Solo se ven las 3 de arriba; el resto espera detrás
+  const coloca = () => {
+    orden.forEach((c, pos) => {
+      const el = cartas[c], p = Math.min(pos, 2);
+      el.style.zIndex = cartas.length - pos;
+      el.style.opacity = pos < 3 ? 1 : 0;
+      el.style.transform = `translate(${p * 2.2}%, ${p * 1.6}%) rotate(${giro[c] + p * 3}deg) scale(${1 - p * .04})`;
+    });
+    contador.textContent = `${orden[0] + 1} / ${cartas.length}`;
+  };
+  const siguiente = (dir = 1) => {
+    if (animando) return;
+    animando = true;
+    const c = orden[0], el = cartas[c];
+    el.classList.remove('drag');
+    el.style.transform = `translateX(${dir * 115}%) rotate(${dir * 18}deg)`;
+    setTimeout(() => {
+      orden = [...orden.slice(1), c];
+      el.style.zIndex = 0;
+      coloca();
+      setTimeout(() => (animando = false), 300);
+    }, 330);
+  };
+  coloca();
+
+  let x0 = 0, y0 = 0, dx = 0, arrastrando = false, id = null;
+  pila.addEventListener('pointerdown', e => { x0 = e.clientX; y0 = e.clientY; dx = 0; arrastrando = false; id = e.pointerId; });
+  pila.addEventListener('pointermove', e => {
+    if (e.pointerId !== id || animando) return;
+    dx = e.clientX - x0;
+    const dy = e.clientY - y0;
+    if (!arrastrando && Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)) { arrastrando = true; pila.setPointerCapture(id); }
+    if (arrastrando) {
+      const el = cartas[orden[0]];
+      el.classList.add('drag');
+      el.style.transform = `translateX(${dx}px) rotate(${giro[orden[0]] + dx * .06}deg)`;
+    }
+  });
+  const suelta = e => {
+    if (e.pointerId !== id) return;
+    id = null; ultimoToque = Date.now();
+    const el = cartas[orden[0]];
+    if (arrastrando && Math.abs(dx) > 60) siguiente(Math.sign(dx));
+    else if (!arrastrando && e.type === 'pointerup' && Math.abs(e.clientY - y0) < 8) siguiente(1);
+    else { el.classList.remove('drag'); coloca(); }
+    arrastrando = false;
+  };
+  pila.addEventListener('pointerup', suelta);
+  pila.addEventListener('pointercancel', suelta);
+
+  // Paso automático: al llegar a la diapositiva se empieza siempre por la primera foto,
+  // que se queda más tiempo (también cuenta la animación de entrada)
+  const historia = pila.closest('.slide');
+  let proxima = Infinity;
+  new MutationObserver(() => {
+    if (historia.classList.contains('in')) {
+      if (proxima === Infinity) { orden = cartas.map((_, n) => n); coloca(); }
+      proxima = Date.now() + 7000;
+    } else proxima = Infinity;
+  }).observe(historia, { attributes: true, attributeFilter: ['class'] });
+  setInterval(() => {
+    const ahora = Date.now();
+    if (reduce || document.hidden || ahora < proxima) return;
+    if (ahora - ultimoToque > 6000) { siguiente(1); proxima = ahora + 4500; }
+  }, 250);
+})();
+</script>
+</body>
+</html>
