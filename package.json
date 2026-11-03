@@ -2,7 +2,8 @@
   "name": "invitacion-boda",
   "private": true,
   "scripts": {
-    "images": "node scripts/build-images.js",
+    "images": "node scripts/build-images.js && node scripts/build-og.js",
+    "og": "node scripts/build-og.js",
     "audio": "node scripts/build-audio.js",
     "dev": "npx --yes serve public",
     "deploy": "npx wrangler deploy"

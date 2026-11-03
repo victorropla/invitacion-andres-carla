@@ -9,6 +9,12 @@ const HTML = path.join(PUBLIC, 'index.html');
 
 module.exports = function versionar() {
   let html = fs.readFileSync(HTML, 'utf8');
+  // Imagen de vista previa (URL absoluta en og:image): cambiar la URL obliga a WhatsApp/redes a pedirla de nuevo
+  const og = path.join(PUBLIC, 'og.jpg');
+  if (fs.existsSync(og)) {
+    const hash = crypto.createHash('md5').update(fs.readFileSync(og)).digest('hex').slice(0, 8);
+    html = html.replace(/\/og\.jpg(\?v=[0-9a-f]+)?"/g, `/og.jpg?v=${hash}"`);
+  }
   for (const dir of ['img', 'audio']) {
     const carpeta = path.join(PUBLIC, dir);
     if (!fs.existsSync(carpeta)) continue;

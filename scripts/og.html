@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- Plantilla de la imagen para compartir (1200x630). La genera scripts/build-og.js -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Oswald:wght@300&display=block">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{background:#f7f4f0 url(../public/img/papel.webp);position:relative;font-family:'Oswald',sans-serif;color:#2b1b1f}
+.tira{position:absolute;width:190px;display:flex;flex-direction:column;gap:16px}
+.tira img{width:100%;aspect-ratio:4/5;object-fit:cover;border:9px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.14)}
+.t1{left:40px;top:-170px;transform:rotate(-14deg)}
+.t2{right:40px;top:-120px;transform:rotate(12deg)}
+.centro{position:absolute;left:300px;right:300px;top:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.kicker{font-weight:300;letter-spacing:.14em;font-size:30px}
+h1{font-family:'Ms Madi',cursive;font-weight:400;color:#641C30;font-size:132px;line-height:.92;margin:14px 0 6px}
+h1 small{font-size:.55em}
+.corazones{width:150px;margin:6px 0 10px}
+.fecha{font-weight:300;letter-spacing:.3em;font-size:30px}
+</style>
+</head>
+<body>
+<div class="tira t1"><img src="../public/img/portada-1.webp"><img src="../public/img/portada-2.webp"><img src="../public/img/portada-3.webp"><img src="../public/img/portada-4.webp"></div>
+<div class="tira t2"><img src="../public/img/portada-3.webp"><img src="../public/img/portada-4.webp"><img src="../public/img/portada-1.webp"><img src="../public/img/portada-2.webp"></div>
+<div class="centro">
+  <p class="kicker">¡NOS CASAMOS!</p>
+  <h1>Carla<br><small>&amp;</small> Andrés</h1>
+  <img class="corazones" src="../public/img/corazones.webp" alt="">
+  <p class="fecha">26 · 06 · 2027</p>
+</div>
+</body>
+</html>

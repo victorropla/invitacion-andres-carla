@@ -92,17 +92,9 @@ async function papel() {
     .toFile(path.join(OUT, 'papel.webp'));
 }
 
-async function og() {
-  // Imagen de vista previa para WhatsApp / redes (1200x630).
-  await sharp(path.join(SRC, 'Portada/WhatsApp Image 2026-11-02 at 12.29.17 (1).jpeg'))
-    .rotate()
-    .resize(1200, 630, { fit: 'cover', position: sharp.strategy.attention })
-    .jpeg({ quality: 78, mozjpeg: true })
-    .toFile(path.join(OUT, '..', 'og.jpg'));
-}
-
+// La imagen de vista previa (public/og.jpg) se genera aparte con scripts/build-og.js.
 (async () => {
-  await Promise.all([...fotos.map(foto), ...dibujos.map(dibujo), papel(), og()]);
+  await Promise.all([...fotos.map(foto), ...dibujos.map(dibujo), papel()]);
   for (const f of fs.readdirSync(OUT)) {
     console.log(f.padEnd(20), (fs.statSync(path.join(OUT, f)).size / 1024).toFixed(1) + ' KB');
   }
