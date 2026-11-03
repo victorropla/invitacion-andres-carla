@@ -17,3 +17,4 @@ const salida = path.join(OUT, 'cancion.m4a');
 execFileSync(ffmpeg, ['-y', '-hide_banner', '-loglevel', 'error', '-i', entrada, '-vn', '-map_metadata', '-1',
   '-c:a', 'aac', '-b:a', '96k', '-ac', '2', '-movflags', '+faststart', salida], { stdio: 'inherit' });
 console.log(`${path.relative(process.cwd(), salida)}  ${(fs.statSync(salida).size / 1024 / 1024).toFixed(2)} MB`);
+require('./versionar')();

@@ -80,8 +80,10 @@ async function papel() {
   const S = 192;
   const base = [247, 244, 240];
   const px = Buffer.alloc(S * S * 3);
+  let semilla = 42; // ruido con semilla fija: el archivo sale igual en cada ejecución
+  const rnd = () => ((semilla = (semilla * 1103515245 + 12345) % 2147483648) / 2147483648);
   for (let i = 0; i < S * S; i++) {
-    const n = Math.round((Math.random() - 0.5) * 10);
+    const n = Math.round((rnd() - 0.5) * 10);
     for (let c = 0; c < 3; c++) px[i * 3 + c] = base[c] + n;
   }
   await sharp(px, { raw: { width: S, height: S, channels: 3 } })
@@ -104,4 +106,5 @@ async function og() {
   for (const f of fs.readdirSync(OUT)) {
     console.log(f.padEnd(20), (fs.statSync(path.join(OUT, f)).size / 1024).toFixed(1) + ' KB');
   }
+  require('./versionar')();
 })();

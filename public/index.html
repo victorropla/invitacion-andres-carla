@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Montserrat:wght@500;700&family=Ms+Madi&family=Oswald:wght@300;600&display=swap">
-<link rel="preload" as="image" href="img/corazones.webp">
+<link rel="preload" as="image" href="img/corazones.webp?v=ea7d4ac9">
 <style>
 :root{
   --granate:#641C30;
@@ -41,7 +41,7 @@ img{display:block;max-width:100%;height:auto;-webkit-user-drag:none;user-select:
 a{color:inherit}
 
 /* Marco de la app: a pantalla completa en móvil, columna centrada en escritorio */
-#app{position:fixed;top:0;left:50%;transform:translateX(-50%);width:min(100%,480px);height:var(--app-h);height:100dvh;background:var(--papel) url(img/papel.webp);box-shadow:0 0 60px rgba(60,20,30,.15);overflow:hidden}
+#app{position:fixed;top:0;left:50%;transform:translateX(-50%);width:min(100%,480px);height:var(--app-h);height:100dvh;background:var(--papel) url(img/papel.webp?v=dc300a96);box-shadow:0 0 60px rgba(60,20,30,.15);overflow:hidden}
 #deck{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 #deck::-webkit-scrollbar{display:none}
 
@@ -172,7 +172,7 @@ a{color:inherit}
 .puntos button[aria-current="true"]::before{opacity:.9;transform:scale(1.4)}
 
 /* Pantalla de entrada (el toque para abrir permite arrancar la música) */
-.sobre{position:absolute;inset:0;z-index:30;background:var(--papel) url(img/papel.webp);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3.5vh;text-align:center;padding:calc(env(safe-area-inset-top) + 24px) 24px calc(env(safe-area-inset-bottom) + 24px);transition:opacity .8s ease,visibility .8s}
+.sobre{position:absolute;inset:0;z-index:30;background:var(--papel) url(img/papel.webp?v=dc300a96);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3.5vh;text-align:center;padding:calc(env(safe-area-inset-top) + 24px) 24px calc(env(safe-area-inset-bottom) + 24px);transition:opacity .8s ease,visibility .8s}
 .sobre.fuera{opacity:0;visibility:hidden}
 .sobre img{width:min(42vw,200px)}
 .sobre h2{font-family:var(--script);font-weight:400;color:var(--granate);font-size:clamp(44px,14vw,68px);line-height:1}
@@ -213,17 +213,17 @@ a{color:inherit}
   <!-- 1 · Portada -->
   <section class="slide s-portada" aria-label="Portada">
     <div class="tira tira-a" aria-hidden="true"><div class="tira-track">
-      <img src="img/portada-1.webp" alt="" width="360" height="450"><img src="img/portada-2.webp" alt="" width="360" height="450"><img src="img/portada-3.webp" alt="" width="360" height="450"><img src="img/portada-4.webp" alt="" width="360" height="450">
+      <img src="img/portada-1.webp?v=3cc63214" alt="" width="360" height="450"><img src="img/portada-2.webp?v=c55569d9" alt="" width="360" height="450"><img src="img/portada-3.webp?v=f285acff" alt="" width="360" height="450"><img src="img/portada-4.webp?v=dc45c364" alt="" width="360" height="450">
     </div></div>
     <div class="tira tira-b" aria-hidden="true"><div class="tira-track">
-      <img src="img/portada-3.webp" alt="" width="360" height="450"><img src="img/portada-4.webp" alt="" width="360" height="450"><img src="img/portada-1.webp" alt="" width="360" height="450"><img src="img/portada-2.webp" alt="" width="360" height="450">
+      <img src="img/portada-3.webp?v=f285acff" alt="" width="360" height="450"><img src="img/portada-4.webp?v=dc45c364" alt="" width="360" height="450"><img src="img/portada-1.webp?v=3cc63214" alt="" width="360" height="450"><img src="img/portada-2.webp?v=c55569d9" alt="" width="360" height="450">
     </div></div>
     <header class="p-top">
       <p class="a" style="--d:.2s">¡NOS CASAMOS!</p>
       <p class="fecha a" style="--d:.5s">26.06.27</p>
     </header>
     <h1 class="nombres"><span class="write" style="--d:.6s">Carla</span><span class="n2 write" style="--d:1.3s"><small>&amp;</small> Andrés</span></h1>
-    <img class="monograma a" src="img/corazones.webp" alt="Corazones con las iniciales A y C" width="360" height="245">
+    <img class="monograma a" src="img/corazones.webp?v=ea7d4ac9" alt="Corazones con las iniciales A y C" width="360" height="245">
     <div class="desliza a">Desliza<svg width="18" height="10" viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 1l8 7 8-7"/></svg></div>
   </section>
 
@@ -231,11 +231,11 @@ a{color:inherit}
   <section class="slide s-momentos" aria-label="Nosotros">
     <svg class="rayas" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
     <figure class="marco m1">
-      <img src="img/momento-1.webp" alt="Carla y Andrés al atardecer" width="640" height="800" loading="lazy">
+      <img src="img/momento-1.webp?v=f4ad2c39" alt="Carla y Andrés al atardecer" width="640" height="800" loading="lazy">
       <svg viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true"><path class="ola-borde"/></svg>
     </figure>
     <figure class="marco m2">
-      <img src="img/momento-2.webp" alt="Carla y Andrés bailando" width="640" height="800" loading="lazy">
+      <img src="img/momento-2.webp?v=1099648d" alt="Carla y Andrés bailando" width="640" height="800" loading="lazy">
       <svg viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true"><path class="ola-borde"/></svg>
     </figure>
   </section>
@@ -249,14 +249,14 @@ a{color:inherit}
       <div><b data-u="m">00</b><small>minutos</small></div><i></i>
       <div><b data-u="s">00</b><small>segundos</small></div>
     </div>
-    <img class="coche a" src="img/coche.webp" alt="Coche de recién casados con globos de corazón" width="480" height="554" loading="lazy">
+    <img class="coche a" src="img/coche.webp?v=901a4606" alt="Coche de recién casados con globos de corazón" width="480" height="554" loading="lazy">
     <a class="btn-sec a" style="--d:1.3s" href="boda.ics" download>Guardar en el calendario</a>
   </section>
 
   <!-- 4 · Ceremonia y recepción -->
   <section class="slide s-lugares" aria-label="Ceremonia y recepción">
     <div class="lugar-dibujo a" style="--d:.2s">
-      <img src="img/iglesia.webp" alt="Dibujo del monasterio" width="293" height="345" loading="lazy">
+      <img src="img/iglesia.webp?v=0963cbf3" alt="Dibujo del monasterio" width="293" height="345" loading="lazy">
       <p>Ceremonia 18h</p>
     </div>
     <div class="lugar-info a" style="--d:.5s">
@@ -269,7 +269,7 @@ a{color:inherit}
       <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Huerto+de+Santa+Mar%C3%ADa+El+Puig" target="_blank" rel="noopener"><u>Cómo llegar</u></a>
     </div>
     <div class="lugar-dibujo a" style="--d:1.9s">
-      <img src="img/mesa.webp" alt="Dibujo de la mesa del banquete" width="420" height="410" loading="lazy">
+      <img src="img/mesa.webp?v=5757708b" alt="Dibujo de la mesa del banquete" width="420" height="410" loading="lazy">
       <p>Recepción 20:15h</p>
     </div>
   </section>
@@ -332,12 +332,12 @@ a{color:inherit}
   <section class="slide s-historia" aria-label="Nuestra historia">
     <h2 class="titulo a">Nuestra historia</h2>
     <div class="pila a" style="--d:.3s" id="pila">
-      <figure class="pola"><figcaption>Así nos conocimos</figcaption><img src="img/polaroid-1.webp" alt="Carla y Andrés el día que se conocieron" width="720" height="720"></figure>
-      <figure class="pola"><figcaption>Nuestros comienzos</figcaption><img src="img/polaroid-2.webp" alt="Carla y Andrés en sus comienzos" width="720" height="720" loading="lazy"></figure>
-      <figure class="pola"><figcaption>Nuestras aventuras</figcaption><img src="img/polaroid-3.webp" alt="Carla y Andrés de viaje" width="720" height="720" loading="lazy"></figure>
-      <figure class="pola"><figcaption>Nuestras pasiones</figcaption><img src="img/polaroid-4.webp" alt="Carla y Andrés vestidos de falleros" width="720" height="720" loading="lazy"></figure>
-      <figure class="pola"><figcaption>Primer gran paso</figcaption><img src="img/polaroid-5.webp" alt="Carla y Andrés con las llaves de su casa" width="720" height="720" loading="lazy"></figure>
-      <figure class="pola"><figcaption>¡El gran día!</figcaption><img src="img/polaroid-6.webp" alt="Carla y Andrés, 26 de junio de 2027" width="720" height="720" loading="lazy"></figure>
+      <figure class="pola"><figcaption>Así nos conocimos</figcaption><img src="img/polaroid-1.webp?v=ab76e829" alt="Carla y Andrés el día que se conocieron" width="720" height="720"></figure>
+      <figure class="pola"><figcaption>Nuestros comienzos</figcaption><img src="img/polaroid-2.webp?v=b986e659" alt="Carla y Andrés en sus comienzos" width="720" height="720" loading="lazy"></figure>
+      <figure class="pola"><figcaption>Nuestras aventuras</figcaption><img src="img/polaroid-3.webp?v=21b55586" alt="Carla y Andrés de viaje" width="720" height="720" loading="lazy"></figure>
+      <figure class="pola"><figcaption>Nuestras pasiones</figcaption><img src="img/polaroid-4.webp?v=fb49a6c4" alt="Carla y Andrés vestidos de falleros" width="720" height="720" loading="lazy"></figure>
+      <figure class="pola"><figcaption>Primer gran paso</figcaption><img src="img/polaroid-5.webp?v=f4b8e072" alt="Carla y Andrés con las llaves de su casa" width="720" height="720" loading="lazy"></figure>
+      <figure class="pola"><figcaption>¡El gran día!</figcaption><img src="img/polaroid-6.webp?v=57927387" alt="Carla y Andrés, 26 de junio de 2027" width="720" height="720" loading="lazy"></figure>
     </div>
     <p class="pila-ayuda a" style="--d:.6s"><span id="pila-n">1 / 6</span> · Desliza las fotos</p>
     <div class="a" style="--d:.8s">
@@ -353,10 +353,10 @@ a{color:inherit}
   <svg class="ecu" viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="5" width="3" height="11" rx="1"/><rect x="8.5" y="3" width="3" height="13" rx="1"/><rect x="14" y="7" width="3" height="9" rx="1"/><path class="tachado" d="M2 2l16 16" stroke="currentColor" stroke-width="1.6"/></svg>
 </button>
 <!-- Canción de fondo: public/audio/cancion.m4a (npm run audio). data-inicio = segundo en el que empieza -->
-<audio id="musica" src="audio/cancion.m4a" preload="none" loop data-inicio="0"></audio>
+<audio id="musica" src="audio/cancion.m4a?v=b7bf3b72" preload="none" loop data-inicio="0"></audio>
 
 <div class="sobre" id="sobre">
-  <img src="img/corazones.webp" alt="" width="360" height="245">
+  <img src="img/corazones.webp?v=ea7d4ac9" alt="" width="360" height="245">
   <h2>Carla &amp; Andrés</h2>
   <p>26 · 06 · 2027</p>
   <button class="btn" type="button" id="abrir"><u>Abrir invitación</u></button>
