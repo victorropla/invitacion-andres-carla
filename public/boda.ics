@@ -9,8 +9,8 @@ DTSTAMP:20261102T120000Z
 DTSTART:20270626T160000Z
 DTEND:20270627T030000Z
 SUMMARY:Boda de Carla & Andrés
-LOCATION:Real Monasterio de Santa María del Puig\, El Puig\, Valencia
-DESCRIPTION:Ceremonia 18:00 en el Monasterio de Santa María del Puig. Recepción 20:15 en el Huerto de Santa María.
+LOCATION:Real Monasterio de Santa María de El Puig\, El Puig\, Valencia
+DESCRIPTION:Ceremonia 18:00 en el Monasterio de Santa María de El Puig. Recepción 20:15 en el Huerto de Santa María (El Puig).
 BEGIN:VALARM
 TRIGGER:-P7D
 ACTION:DISPLAY
